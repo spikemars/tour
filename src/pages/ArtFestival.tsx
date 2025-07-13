@@ -48,7 +48,7 @@ export default function ArtFestival() {
       name: "犬岛",
       description: "工业遗产与现代艺术完美结合的小岛",
       highlights: ["犬岛精炼所美术馆", "犬岛家计划", "石职人之里"],
-      image: "inujima.png",
+      image: "inujima.jpg",
       artworks: ["三島由紀夫作品展", "柳幸典装置", "工业遗产艺术"],
       officialLink: "https://setouchi-artfest.jp/tw/place/inujima/"
     },
@@ -111,7 +111,11 @@ export default function ArtFestival() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {islands.map((island, index) => (
             <Card key={index} className="group hover:shadow-xl transition-all duration-300 bg-white">
-              <div className="relative overflow-hidden rounded-t-lg">
+              <div 
+                className="relative overflow-hidden rounded-t-lg cursor-pointer"
+                onClick={() => window.open(island.officialLink, '_blank')}
+                title="点击查看官方介绍"
+              >
                 <img 
                   src={island.image} 
                   alt={island.name}
@@ -171,16 +175,6 @@ export default function ArtFestival() {
                   </div>
                 </div>
 
-                {/* 官方链接 */}
-                <Button 
-                  variant="outline" 
-                  size="sm"
-                  className="w-full text-indigo-600 border-indigo-200 hover:bg-indigo-50"
-                  onClick={() => window.open(island.officialLink, '_blank')}
-                >
-                  <ExternalLink className="w-3 h-3 mr-2" />
-                  查看官方介绍
-                </Button>
               </CardContent>
             </Card>
           ))}
