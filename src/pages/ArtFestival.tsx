@@ -24,7 +24,7 @@ export default function ArtFestival() {
       name: "直岛",
       description: "现代艺术圣地，以草间弥生和安藤忠雄的作品闻名",
       highlights: ["地中美术馆", "李禹焕美术馆", "黄南瓜", "本村地区"],
-      image: "/naoshima.jpg",
+      image: "naoshima.jpg",
       artworks: ["草间弥生黄南瓜", "莫奈睡莲", "安藤忠雄建筑"],
       officialLink: "https://setouchi-artfest.jp/tw/place/naoshima/"
     },
@@ -32,7 +32,7 @@ export default function ArtFestival() {
       name: "丰岛",
       description: "自然与艺术和谐共生的岛屿，以丰岛美术馆著称",
       highlights: ["丰岛美术馆", "心脏音档案馆", "横尾馆", "艺术家之家"],
-      image: "/teshima.jpg",
+      image: "teshima.jpg",
       artworks: ["内藤礼泉水作品", "Christian Boltanski心跳", "横尾忠则作品"],
       officialLink: "https://setouchi-artfest.jp/tw/place/teshima/"
     },
@@ -40,7 +40,7 @@ export default function ArtFestival() {
       name: "小豆岛",
       description: "濑户内海第二大岛，融合自然美景与现代艺术",
       highlights: ["寒霞溪", "天使之路", "橄榄公园", "二十四只眼睛电影村"],
-      image: "/shodoshima.jpg",
+      image: "shodoshima.jpg",
       artworks: ["太阳的贈り物", "小豆岛之光", "橄榄艺术装置"],
       officialLink: "https://setouchi-artfest.jp/tw/place/shodoshima/"
     },
@@ -48,7 +48,7 @@ export default function ArtFestival() {
       name: "犬岛",
       description: "工业遗产与现代艺术完美结合的小岛",
       highlights: ["犬岛精炼所美术馆", "犬岛家计划", "石职人之里"],
-      image: "/inujima.png",
+      image: "inujima.png",
       artworks: ["三島由紀夫作品展", "柳幸典装置", "工业遗产艺术"],
       officialLink: "https://setouchi-artfest.jp/tw/place/inujima/"
     },
@@ -56,7 +56,7 @@ export default function ArtFestival() {
       name: "女木岛",
       description: "传说中鬼岛，充满神秘色彩和互动艺术",
       highlights: ["鬼岛大洞窟", "海鸥停车场", "女木岛名画座"],
-      image: "/megijima.jpg",
+      image: "megijima.jpg",
       artworks: ["木村崇人海鸥作品", "大竹伸朗女根", "互动艺术装置"],
       officialLink: "https://setouchi-artfest.jp/tw/place/megijima/"
     },
@@ -64,7 +64,7 @@ export default function ArtFestival() {
       name: "男木岛",
       description: "传统建筑与现代艺术融合的美丽岛屿",
       highlights: ["男木岛图书馆", "步行路径艺术", "传统石墙街道"],
-      image: "/ogijima.jpg",
+      image: "ogijima.jpg",
       artworks: ["马克·迪翁图书馆", "屋顶艺术装置", "步行路径作品"],
       officialLink: "https://setouchi-artfest.jp/tw/place/ogijima/"
     }
