@@ -14,7 +14,7 @@ export default function Home() {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src="https://pub-cdn.sider.ai/u/U0W8HE6K4X/web-coder/6873573bb1dac45b18ccd488/resource/5c13c10b-5d6f-48b2-9028-96c421fcb277.jpg"
+            src="/home-hero.jpg"
             alt="濑户内海艺术祭"
             className="w-full h-full object-cover"
           />

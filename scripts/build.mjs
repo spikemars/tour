@@ -1,6 +1,7 @@
 import esbuild from 'esbuild'
 import { rimraf } from 'rimraf'
 import { createEsbuildConfig, devServerConfig, watchConfig } from './esbuild.config.mjs'
+import { existsSync, cpSync } from 'fs';
 
 const args = process.argv.slice(2)
 const isProd = args.includes('--production')
@@ -31,6 +32,11 @@ function handleSuccess(result) {
   } else {
     console.log('🚀 开发服务器启动成功!')
   }
+}
+
+if (existsSync('public')) {
+  cpSync('public', 'dist', { recursive: true });
+  console.log('✅ 已复制 public 目录到 dist');
 }
 
 try {
