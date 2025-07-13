@@ -3,7 +3,7 @@
  * 可编辑的行程安排和交通信息
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Calendar, MapPin, Camera, Palette, Ship, Clock, Edit3, ExternalLink, Car, Train, Anchor, ArrowLeft } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
@@ -20,56 +20,73 @@ interface ItineraryDay {
 
 export default function Itinerary() {
   const [isEditMode, setIsEditMode] = useState(false);
-  const [itinerary, setItinerary] = useState<ItineraryDay[]>([
-    {
-      day: "D1",
-      route: "关西机场 → 宇野港",
-      activities: "入境 • 租车 • 适应时差",
-      accommodation: "宇野港住宿",
-      transport: "租车自驾",
-      isEditable: true
-    },
-    {
-      day: "D2", 
-      route: "宇野港 → 丰岛（当日往返）",
-      activities: "丰岛美术馆 • 心脏音档案馆 • 横尾馆 • 丰岛环岛",
-      accommodation: "宇野港住宿",
-      transport: "轮渡往返",
-      isEditable: true
-    },
-    {
-      day: "D3",
-      route: "宇野港 → 直岛（当日往返）", 
-      activities: "地中美术馆 • 李禹焕美术馆 • 本村地区 • 黄南瓜",
-      accommodation: "宇野港住宿",
-      transport: "轮渡往返",
-      isEditable: true
-    },
-    {
-      day: "D4",
-      route: "宇野港 → 小豆岛（汽车渡轮）",
-      activities: "驾车渡轮 • 寒霞溪 • 天使之路 • 橄榄公园",
-      accommodation: "小豆岛住宿",
-      transport: "汽车渡轮",
-      isEditable: true
-    },
-    {
-      day: "D5",
-      route: "小豆岛 → 高松",
-      activities: "二十四只眼睛电影村 • 酱油工房",
-      accommodation: "高松住宿",
-      transport: "汽车渡轮",
-      isEditable: true
-    },
-    {
-      day: "D6",
-      route: "高松 → 关西机场",
-      activities: "栗林公园 • 高松购物 • 返程",
-      accommodation: "",
-      transport: "自驾返程",
-      isEditable: true
+  const [itinerary, setItinerary] = useState<ItineraryDay[]>([]);
+
+  // 组件挂载时从 localStorage 读取行程
+  useEffect(() => {
+    const saved = localStorage.getItem('itinerary');
+    if (saved) {
+      setItinerary(JSON.parse(saved));
+    } else {
+      setItinerary([
+        {
+          day: "D1",
+          route: "关西机场 → 宇野港",
+          activities: "入境 • 租车 • 适应时差",
+          accommodation: "宇野港住宿",
+          transport: "租车自驾",
+          isEditable: true
+        },
+        {
+          day: "D2", 
+          route: "宇野港 → 丰岛（当日往返）",
+          activities: "丰岛美术馆 • 心脏音档案馆 • 横尾馆 • 丰岛环岛",
+          accommodation: "宇野港住宿",
+          transport: "轮渡往返",
+          isEditable: true
+        },
+        {
+          day: "D3",
+          route: "宇野港 → 直岛（当日往返）", 
+          activities: "地中美术馆 • 李禹焕美术馆 • 本村地区 • 黄南瓜",
+          accommodation: "宇野港住宿",
+          transport: "轮渡往返",
+          isEditable: true
+        },
+        {
+          day: "D4",
+          route: "宇野港 → 小豆岛（汽车渡轮）",
+          activities: "驾车渡轮 • 寒霞溪 • 天使之路 • 橄榄公园",
+          accommodation: "小豆岛住宿",
+          transport: "汽车渡轮",
+          isEditable: true
+        },
+        {
+          day: "D5",
+          route: "小豆岛 → 高松",
+          activities: "二十四只眼睛电影村 • 酱油工房",
+          accommodation: "高松住宿",
+          transport: "汽车渡轮",
+          isEditable: true
+        },
+        {
+          day: "D6",
+          route: "高松 → 关西机场",
+          activities: "栗林公园 • 高松购物 • 返程",
+          accommodation: "",
+          transport: "自驾返程",
+          isEditable: true
+        }
+      ]);
     }
-  ]);
+  }, []);
+
+  // 行程变动时写入 localStorage
+  useEffect(() => {
+    if (itinerary.length > 0) {
+      localStorage.setItem('itinerary', JSON.stringify(itinerary));
+    }
+  }, [itinerary]);
 
   const highlights = [
     {
