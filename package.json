@@ -22,7 +22,8 @@
     "build": "node scripts/build.mjs --production",
     "watch": "node scripts/build.mjs --watch",
     "preview": "npx serve dist -p 3001",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "deploy": "node scripts/deploy.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",

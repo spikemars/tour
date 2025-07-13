@@ -58,15 +58,15 @@ export function createEsbuildConfig({ isProd = false, isWatch = false } = {}) {
       {
         name: 'html-copy',
         setup(build) {
-          build.onResolve({ filter: /\.html$/ }, () => {
-            return { path: join(process.cwd(), 'index.html'), namespace: 'html' }
-          })
-          
-          build.onLoad({ filter: /.*/, namespace: 'html' }, async (args) => {
-            const html = readFileSync(args.path, 'utf8')
-            return {
-              contents: html,
-              loader: 'copy'
+          build.onEnd(async () => {
+            const fs = await import('fs/promises')
+            const path = await import('path')
+            try {
+              const sourceHtml = await fs.readFile('index.html', 'utf8')
+              await fs.writeFile(path.join('dist', 'index.html'), sourceHtml)
+              console.log('✅ index.html 已复制到 dist 目录')
+            } catch (error) {
+              console.error('❌ 复制 index.html 失败:', error)
             }
           })
         }
